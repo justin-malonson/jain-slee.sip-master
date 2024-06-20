@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="Release_build" default="deploy-all">
+
+	<property name="home" value="${ant.file.Release_build}/../" />
+	<property name="jboss.home" value="${home}/@JBOSS.PATH@/" />
+		
+	<target name="deploy-all">
+		<ant antfile="${home}../../examples/sip-jdbc-registrar/build.xml" target="deploy-all" inheritAll="false">
+			<property name="jboss.home" value="${jboss.home}" />
+		</ant>
+		<sleep milliseconds="5000"/>
+		<ant antfile="${home}../../examples/sip-wake-up/du-management.xml" target="deploy" inheritAll="false">
+			<property name="jboss.home" value="${jboss.home}" />
+		</ant>
+	</target>
+
+	<target name="undeploy-all">
+		<ant antfile="${home}../../examples/sip-wake-up/du-management.xml" target="undeploy" inheritAll="false">
+			<property name="jboss.home" value="${jboss.home}" />
+		</ant>
+		<ant antfile="${home}../../examples/sip-jdbc-registrar/build.xml" target="undeploy-all" inheritAll="false">
+			<property name="jboss.home" value="${jboss.home}" />
+		</ant>
+	</target>
+
+</project>

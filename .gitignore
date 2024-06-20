@@ -1,0 +1,40 @@
+# Mobicents
+${release.dir}
+
+# Java compiled #
+#################
+*.class
+
+# IDE #
+###########
+.classpath
+.project
+.settings
+.idea
+*.iml
+
+# Maven #
+#########
+target
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Mobicents
+${env.JBOSS_HOME}
+${release.dir}
+resources/sip11/docs/sources-restcomm/src/
+examples/sip-b2bua/docs/sources-restcomm/src/
+examples/sip-jdbc-registrar/docs/sources-restcomm/src/
+examples/sip-uas/docs/sources-restcomm/src/
+examples/sip-wake-up/docs/sources-restcomm/src/
+enablers/sip-publication-client/docs/sources-restcomm/src/
+enablers/sip-subscription-client/docs/sources-restcomm/src/

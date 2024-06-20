@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>org.mobicents.servers.jainslee.sip</groupId>
+        <artifactId>restcomm-slee-sip</artifactId>
+        <version>7.0.0-SNAPSHOT</version>
+        <relativePath>../..</relativePath>
+    </parent>
+	
+    <groupId>org.mobicents.resources</groupId>
+    <artifactId>restcomm-slee-ra-sip11</artifactId>
+    <name>Restcomm :: Resources :: ${project.artifactId}</name>
+
+    <modules>
+        <module>library</module>
+        <module>events</module>
+        <module>ratype</module>
+        <module>ra</module>
+        <module>du</module>
+    </modules>
+
+    <properties>
+        <docs.profile>restcomm</docs.profile>
+        <docs.ra.name>SIP11</docs.ra.name>
+        <docs.ra.dirname>sip11</docs.ra.dirname>
+        <docs.bookid>SIP11</docs.bookid>
+    </properties>
+	
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>javax.sip</groupId>
+                <artifactId>jain-sip-ri</artifactId>
+                <version>${jain-sip-ri.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mobicents.javax.sip</groupId>
+                <artifactId>restcomm-jain-sip-ext</artifactId>
+                <version>${restcomm.jain.sip.ext.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mobicents.servers.jainslee.core</groupId>
+                <artifactId>spi</artifactId>
+                <version>${restcomm.jain.slee.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.restcomm.cluster</groupId>
+                <artifactId>cache</artifactId>
+                <version>${restcomm.cluster.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.restcomm.cluster</groupId>
+                <artifactId>core</artifactId>
+                <version>${restcomm.cluster.version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+	
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <groupId>org.mobicents.tools</groupId>
+                <inherited>false</inherited>
+                <executions />
+                <configuration>
+                    <excludePoms />
+                    <classpathExcludes>
+                        <exclude>xml-apis:xml-apis</exclude>
+                        <exclude>jtidy:jtidy</exclude>
+                    </classpathExcludes>
+                    <resolveTransitiveDependencies>true</resolveTransitiveDependencies>
+                    <eclipseProjectName>slee-ra-sip11</eclipseProjectName>
+                </configuration>
+            </plugin>
+        </plugins>		
+    </build>
+			
+    <profiles>
+        <profile>
+            <id>release</id>
+            <modules>
+                <module>docs</module>
+                <module>release</module>
+            </modules>			
+        </profile>
+        <profile>
+            <id>maven-release</id>
+            <modules>
+                <module>docs</module>
+                <module>release</module>
+            </modules>				
+        </profile>
+    </profiles>
+
+</project>
